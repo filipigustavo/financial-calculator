@@ -1,7 +1,7 @@
-const NumField = ({ label, ...props }: any) => (
-  <div className="calculator__group">
-    <label className="calculator__label">{label}</label>
-    <input className="calculator__field" required type="number" {...props} />
+const NumField = ({ label, cssClasses, name, value, onChange }: CalculatorFieldProps) => (
+  <div className={cssClasses.group}>
+    <label className={cssClasses.label}>{label}</label>
+    <input className={cssClasses.input} required type="number" {...{ name, value, onChange }} />
   </div>
 )
 

@@ -19,6 +19,35 @@ type CalcAction = {
   payload: number
 }
 
+type CalculatorLabels = {
+  time: string
+  initialValue: string
+  monthlyValue: string
+  tax: string
+  contribution: string
+  submit: string
+}
+
+type CalculatorCssClasses = {
+  mainClass: string,
+  group: string,
+  label: string,
+  input: string,
+  actions: string,
+  submit: string
+}
+
 type CalculatorProps = {
+  labels?: CalculatorLabels
+  cssClasses?: CalculatorCssClasses
   onSubmit: (val: CalcResponse) => void
+}
+
+type CalculatorFieldProps = {
+  label: string
+  labels: CalculatorLabels
+  cssClasses: CalculatorCssClasses
+  name: string
+  value: number
+  onChange: ChangeEventHandler<HTMLInputElement>
 }

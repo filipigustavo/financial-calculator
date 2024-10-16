@@ -37,7 +37,7 @@ export const calculate = ({
   };
 };
 
-const reducer = (state: CalcTax, action: CalcAction) => {
+export const reducer = (state: CalcTax, action: CalcAction) => {
   switch (action.type) {
     case "change":
       return {
@@ -49,5 +49,3 @@ const reducer = (state: CalcTax, action: CalcAction) => {
       return state
   }
 }
-
-export default { money, calculate, reducer }

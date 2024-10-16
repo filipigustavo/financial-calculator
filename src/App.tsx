@@ -9,14 +9,20 @@ function App() {
   const handleSubmit = (val: CalcResponse) => setCalcValue(val)
 
   return <>
-    <Calculator ref={calcRef} onSubmit={handleSubmit} />
+    <Calculator ref={calcRef} onSubmit={handleSubmit} labels={{
+      time: "Tempo",
+      initialValue: "Valor inicial",
+      monthlyValue: "Valor mensal",
+      tax: "Juros",
+      contribution: "Aporte",
+      submit: "Calcular"
+    }} />
     <hr />
     <pre>
       { JSON.stringify(calcRef.current?.calc || {}, null, 2) }
-      
-      ----------
-      
-      {JSON.stringify(calcValue || {}, null, 2)}
+    </pre>
+    <pre>
+      { JSON.stringify(calcValue || {}, null, 2) }
     </pre>
   </>
 }
