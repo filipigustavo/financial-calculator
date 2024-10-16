@@ -1,35 +1,24 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useRef, useState } from "react"
+
+import Calculator from "./lib/Calculator"
 
 function App() {
-  const [count, setCount] = useState(0)
+  const calcRef = useRef<{ calc: CalcTax }>(null)
+  const [calcValue, setCalcValue] = useState<CalcResponse | null>(null)
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+  const handleSubmit = (val: CalcResponse) => setCalcValue(val)
+
+  return <>
+    <Calculator ref={calcRef} onSubmit={handleSubmit} />
+    <hr />
+    <pre>
+      { JSON.stringify(calcRef.current?.calc || {}, null, 2) }
+      
+      ----------
+      
+      {JSON.stringify(calcValue || {}, null, 2)}
+    </pre>
+  </>
 }
 
 export default App
