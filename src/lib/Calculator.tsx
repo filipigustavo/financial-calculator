@@ -34,7 +34,7 @@ const Calculator = forwardRef(function Calculator({ labels = labelsDefault, cssC
       <NumField label={labels.contribution} cssClasses={cssClasses} name="contribution" value={calc.contribution} onChange={handleChangeField} />
 
       <div className={cssClasses.actions}>
-        <button className={cssClasses.submit}>{labels.submit}</button>
+        <button type="submit" className={cssClasses.submit}>{labels.submit}</button>
       </div>
     </form>
   )

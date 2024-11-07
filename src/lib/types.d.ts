@@ -45,7 +45,6 @@ type CalculatorProps = {
 
 type CalculatorFieldProps = {
   label: string
-  labels: CalculatorLabels
   cssClasses: CalculatorCssClasses
   name: string
   value: number
